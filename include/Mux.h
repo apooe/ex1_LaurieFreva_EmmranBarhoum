@@ -2,16 +2,17 @@
 #include"Gate.h"
 
 
-class Or : public Gate
+class Mux : public Gate
 {
 public:
-	Or();
-	Or(int inputs);
-	~Or();
+	Mux();
+	Mux(int inputs);
+	~Mux();
 	int getNumInputs();
 	virtual string print();
 	virtual string printInput();
 	virtual int eval();
+
 
 
 private:

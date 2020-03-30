@@ -11,6 +11,7 @@ public:
 	~Gate();
 	virtual string print() = 0;
 	virtual string printInput() = 0;
+	virtual int eval() = 0;
 
 private:
 	

@@ -3,6 +3,10 @@
 #include <vector>
 #include <Gate.h>
 #include <Or.h>
+#include <And.h>
+#include <Xor.h>
+#include <Not.h>
+#include <Mux.h>
 
 using namespace std;
 using std::vector;
@@ -21,7 +25,10 @@ public:
 	~Controller();
 	void run();
 	void printCommandsList();
-	
+	Command_t commandIndex(string str);
+	bool doCommand(Command_t cmd);
+	void do_help();
+	void do_eval();
 
 private:
 	vector<shared_ptr<Gate>> m_gates; //or vector <Gate*> m_gates;
