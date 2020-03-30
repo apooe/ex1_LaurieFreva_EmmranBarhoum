@@ -36,3 +36,7 @@ int And::eval()
 	return  (n1 == 1 && n2 == 1) ? 1 : 0;
 
 }
+
+void And::table()
+{
+}

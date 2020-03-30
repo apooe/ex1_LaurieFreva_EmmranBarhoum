@@ -41,3 +41,7 @@ int Mux::eval()
 		return -1;
 
 }
+
+void Mux::table()
+{
+}

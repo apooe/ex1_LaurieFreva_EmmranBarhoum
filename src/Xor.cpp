@@ -35,3 +35,7 @@ int Xor::eval()
 	return (n1 == n2) ? 0 : 1;
 
 }
+
+void Xor::table()
+{
+}

@@ -16,7 +16,8 @@ void Controller::run()
 	string str;
 
 	cin >> str;
-	while (str != "exit") {
+
+	while (true) {
 
 		Command_t cmd = commandIndex(str);
 		if (doCommand(cmd))
@@ -25,7 +26,6 @@ void Controller::run()
 		cin >> str;
 		
 	}
-	
 }
 
 void Controller::printCommandsList()
@@ -74,13 +74,17 @@ bool Controller::doCommand(Command_t cmd)
 		do_help();
 		return true;
 
-	/*case Table_t:
+	case Table_t:
 		do_table();
 		return true;
 
 	case Exit_t:
 		do_exit();
-		return true;*/
+		return true;
+	
+	case Del_t:
+		do_delete();
+		return true;
 	}
 	return false;
 }
@@ -112,4 +116,32 @@ void Controller::do_eval()
 	else
 		cout << "error" << endl;
 
+}
+
+void Controller::do_exit()
+{
+	cout << "Goodbye !";
+	exit(EXIT_SUCCESS);
+}
+
+void Controller::do_delete()
+{
+	int gate;
+	cin >> gate;
+	if(checkVector(gate))
+		m_gates.erase(m_gates.begin() + gate);
+	//else  = message or error
+	cout << endl;
+}
+
+void Controller::do_table()
+{
+	int gate;
+	cin >> gate;
+	m_gates[gate]->
+}
+
+bool Controller::checkVector(int index)
+{
+	return  (index <= m_gates.size() - 1);
 }

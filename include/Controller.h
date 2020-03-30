@@ -29,6 +29,11 @@ public:
 	bool doCommand(Command_t cmd);
 	void do_help();
 	void do_eval();
+	void do_exit();
+	void do_delete();
+	void do_table();
+
+	bool checkVector(int index);
 
 private:
 	vector<shared_ptr<Gate>> m_gates; //or vector <Gate*> m_gates;

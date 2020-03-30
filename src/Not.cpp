@@ -39,3 +39,7 @@ int Not::eval()
 	else
 		return -1;
 }
+
+void Not::table()
+{
+}

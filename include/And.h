@@ -12,6 +12,7 @@ public:
 	virtual string print();
 	virtual string printInput();
 	virtual int eval();
+	virtual void table();
 	
 
 

@@ -35,3 +35,7 @@ int Or::eval()
 	return (n1 == 0 && n2 == 0) ? 0 : 1;
 		
 }
+
+void Or::table()
+{
+}
