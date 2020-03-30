@@ -138,7 +138,6 @@ void Controller::do_table()
 {
 	int gate;
 	cin >> gate;
-	m_gates[gate]->
 }
 
 bool Controller::checkVector(int index)
