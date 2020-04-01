@@ -7,6 +7,7 @@
 #include <Xor.h>
 #include <Not.h>
 #include <Mux.h>
+#include <Comp.h>
 
 using namespace std;
 using std::vector;
@@ -32,6 +33,7 @@ public:
 	void do_exit();
 	void do_delete();
 	void do_table();
+	void do_comp();
 
 	bool checkVector(int index);
 

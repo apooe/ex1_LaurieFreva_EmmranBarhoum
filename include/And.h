@@ -8,14 +8,10 @@ public:
 	And();
 	And(int inputs);
 	~And();
-	int getNumInputs();
+
 	virtual string print();
-	virtual string printInput();
-	virtual int eval();
+	
+	virtual int eval(int n1, int n2);
 	virtual void table();
 	
-
-
-private:
-	int m_inputs;
 };

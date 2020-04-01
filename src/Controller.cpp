@@ -11,7 +11,8 @@ void Controller::run()
 	m_gates.push_back(make_shared<Xor>(2));// 2 is the num of inputs 
 	m_gates.push_back(make_shared<Not>(1));// 2 is the num of inputs 
 	m_gates.push_back(make_shared<Mux>(3));// 2 is the num of inputs 
-
+	
+ 
 	printCommandsList();
 	string str;
 
@@ -33,11 +34,9 @@ void Controller::printCommandsList()
 	cout << "List of available gates:" << endl;
 
 	for (int i = 0; i < m_gates.size(); i++)
-		cout << i << ":  " << m_gates[i]->print() << m_gates[i]->printInput() << std::endl;
+		cout << i << ":  " << m_gates[i]->print() << std::endl;
 
 	cout << "Enter command ('help' for the list of available commands):\n";
-	
-
 }
 
 Command_t Controller::commandIndex(string str)
@@ -64,11 +63,9 @@ bool Controller::doCommand(Command_t cmd)
 		do_eval();
 		return true;
 
-	/*case Comp_t:
+	case Comp_t:
 		do_comp();
 		return true;
-
-		*/
 
 	case Help_t:
 		do_help();
@@ -104,17 +101,17 @@ void Controller::do_help()
 
 void Controller::do_eval()
 {
-	int gate;
-	cin >> gate;
-	cout << m_gates[gate]->print();
-	cout << m_gates[gate]->printInput();
+	int gate, n1, n2 = 0; 
 
-	int result = m_gates[gate]->eval();
+	cin >> gate >> n1; //add check_values
 
-	if (result != -1)
-		cout << " result : " << result << endl << endl;
-	else
-		cout << "error" << endl;
+	if (m_gates[gate]->print() != "NOT (1 input)") // we need just one number for not
+		cin >> n2; // check value
+		
+	cout << m_gates[gate]->print(); 
+	
+	cout << " result : " << m_gates[gate]->eval(n1, n2) << endl << endl;
+	
 
 }
 
@@ -127,17 +124,26 @@ void Controller::do_exit()
 void Controller::do_delete()
 {
 	int gate;
-	cin >> gate;
+	cin >> gate; 
 	if(checkVector(gate))
 		m_gates.erase(m_gates.begin() + gate);
-	//else  = message or error
+	//else  = message of error
 	cout << endl;
 }
 
 void Controller::do_table()
 {
 	int gate;
-	cin >> gate;
+	cin >> gate; //check
+	m_gates[gate]->table();
+}
+
+void Controller::do_comp()
+{
+	int g1, g2, inp;
+	cin >> g1 >> g2 >> inp; 
+	if (checkVector(g1) && checkVector(g2)) // + check inp
+		m_gates.push_back(make_shared<Comp>(m_gates[g1], m_gates[g2], inp));
 }
 
 bool Controller::checkVector(int index)

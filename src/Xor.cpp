@@ -1,6 +1,6 @@
 #include"Xor.h"
 
-Xor::Xor() : m_inputs(2)
+Xor::Xor() 
 {
 }
 
@@ -13,25 +13,17 @@ Xor::~Xor()
 {
 }
 
-int Xor::getNumInputs()
-{
-	return m_inputs;
-}
 
 string Xor::print()
 {
-	return "XOR";
+	return "XOR (2 inputs)";
 }
 
-string Xor::printInput()
-{
-	return " (" + std::to_string(m_inputs) + " input)";
-}
 
-int Xor::eval()
+
+int Xor::eval(int n1, int n2)
 {
-	int n1, n2;
-	cin >> n1 >> n2;
+	
 	return (n1 == n2) ? 0 : 1;
 
 }

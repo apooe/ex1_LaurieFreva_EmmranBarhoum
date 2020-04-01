@@ -1,6 +1,6 @@
 #include"Not.h"
 
-Not::Not() : m_inputs(1)
+Not::Not()
 {
 }
 
@@ -13,25 +13,17 @@ Not::~Not()
 {
 }
 
-int Not::getNumInputs()
-{
-	return m_inputs;
-}
+
 
 string Not::print()
 {
-	return "NOT";
+	return "NOT (1 input)";
 }
 
-string Not::printInput()
-{
-	return " (" + std::to_string(m_inputs) + " input)";
-}
 
-int Not::eval()
+int Not::eval(int n1, int n2)
 {
-	int n1;
-	cin >> n1; 
+	
 	if (n1 == 0)
 		return 1;
 	else if(n1 == 1)

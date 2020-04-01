@@ -1,6 +1,6 @@
 #include "Mux.h"
 
-Mux::Mux() : m_inputs(3)
+Mux::Mux() 
 {
 }
 
@@ -13,25 +13,18 @@ Mux::~Mux()
 {
 }
 
-int Mux::getNumInputs()
-{
-	return m_inputs;
-}
 
 string Mux::print()
 {
-	return "MUX";
+	return "MUX (3 inputs)";
 }
 
-string Mux::printInput()
-{
-	return " (" + std::to_string(m_inputs) + " input)";
-}
 
-int Mux::eval()
+
+int Mux::eval(int n1, int n2)
 {
-	int n1, n2, n3;
-	cin >> n1 >> n2 >> n3;
+	int n3;
+	cin >> n3;
 
 	if (n1 == 0)
 		return n2;

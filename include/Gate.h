@@ -10,10 +10,11 @@ public:
 	Gate();
 	~Gate();
 	virtual string print() = 0;
-	virtual string printInput() = 0;
-	virtual int eval() = 0;
+
+	int getInput();
+	virtual int eval(int n1, int n2) = 0;
 	virtual void table() = 0;
 
-private:
-	
+protected:
+	int m_inputs;
 }; 

@@ -5,4 +5,5 @@
 								  "And.cpp"
 								  "Xor.cpp"
 								  "Not.cpp"
-								  "Mux.cpp")
+								  "Mux.cpp"
+								  "Comp.cpp")
